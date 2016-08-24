@@ -14,6 +14,7 @@ import com.example.nearby.criminalintent.R;
 public abstract class SingleFragmentActivity extends AppCompatActivity {
 
 
+
     protected abstract Fragment createFragment();
 
     @Override
