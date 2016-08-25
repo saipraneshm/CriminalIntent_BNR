@@ -1,7 +1,37 @@
-<android.support.v7.widget.RecyclerView
-             xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:id="@+id/crimeList">
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/crimeList">
 
-</android.support.v7.widget.RecyclerView>
+        </android.support.v7.widget.RecyclerView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:orientation="vertical"
+            android:id="@+id/llFragmentListCrime"
+            android:visibility="gone">
+
+            <TextView
+                android:textSize="24sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_crimes_to_display"
+                android:id="@+id/fragment_crime_info_text"
+                android:layout_gravity="center_horizontal"
+                />
+            <Button
+                android:id="@+id/addCrime"
+                android:text="@string/new_crime"
+                android:drawableLeft="@drawable/ic_menu_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+
+</FrameLayout>
+

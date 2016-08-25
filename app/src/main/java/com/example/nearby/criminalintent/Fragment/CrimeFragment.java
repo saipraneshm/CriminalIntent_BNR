@@ -10,6 +10,9 @@ import android.support.v4.util.TimeUtils;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -49,8 +52,12 @@ public class CrimeFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mCrime = CrimeLab.get(getActivity()).getCrime((UUID) getArguments().getSerializable(CRIME_ID));
+        mCrime = CrimeLab.
+                get(getActivity()).
+                getCrime((UUID) getArguments().
+                        getSerializable(CRIME_ID));
 
+        setHasOptionsMenu(true);
         setRetainInstance(true);
     }
 
@@ -63,9 +70,13 @@ public class CrimeFragment extends Fragment {
         return crimeFragment;
     }
 
+
+
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_crime,container,false);
 
@@ -151,6 +162,27 @@ public class CrimeFragment extends Fragment {
             updateTime();
             updateDate();
         }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.fragment_crime,menu);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case(R.id.menu_item_remove_crime):
+                CrimeLab crimeLab = CrimeLab.get(getActivity());
+                crimeLab.removeCrime(mCrime);
+                getActivity().finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
     }
 
     private void updateDate() {
