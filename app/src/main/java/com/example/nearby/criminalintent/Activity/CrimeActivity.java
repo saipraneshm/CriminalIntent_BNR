@@ -1,13 +1,9 @@
-package com.example.nearby.criminalintent.Activity;
+package com.example.nearby.criminalintent.activity;
 
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.os.Bundle;
 
-import com.example.nearby.criminalintent.Fragment.CrimeFragment;
-import com.example.nearby.criminalintent.Fragment.CrimeListFragment;
-import com.example.nearby.criminalintent.R;
+import com.example.nearby.criminalintent.fragment.CrimeFragment;
+import com.example.nearby.criminalintent.fragment.CrimeListFragment;
 
 import java.util.UUID;
 

@@ -1,4 +1,4 @@
-package com.example.nearby.criminalintent.Fragment;
+package com.example.nearby.criminalintent.fragment;
 
 
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,15 +17,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.example.nearby.criminalintent.Activity.CrimeActivity;
-import com.example.nearby.criminalintent.Activity.CrimePagerActivity;
-import com.example.nearby.criminalintent.Adapter.CrimeAdapter;
-import com.example.nearby.criminalintent.Model.Crime;
-import com.example.nearby.criminalintent.Model.CrimeLab;
+import com.example.nearby.criminalintent.activity.CrimePagerActivity;
+import com.example.nearby.criminalintent.adapter.CrimeAdapter;
+import com.example.nearby.criminalintent.model.Crime;
+import com.example.nearby.criminalintent.model.CrimeLab;
 import com.example.nearby.criminalintent.R;
 
 import java.util.List;
-import java.util.UUID;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -110,6 +107,7 @@ public class CrimeListFragment extends Fragment {
             mRecyclerView.setAdapter(mCrimeAdapter);
         }else{
            // if(mCrime != null && position >= 0)
+                mCrimeAdapter.setCrimes(crimes);
                 mCrimeAdapter.notifyDataSetChanged();
         }
 

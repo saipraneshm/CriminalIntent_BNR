@@ -1,4 +1,4 @@
-package com.example.nearby.criminalintent.Fragment;
+package com.example.nearby.criminalintent.fragment;
 
 
 

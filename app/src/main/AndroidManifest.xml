@@ -2,15 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.nearby.criminalintent">
 
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.CrimePagerActivity"
-            android:parentActivityName=".Activity.CrimeListActivity"/>
-        <activity android:name=".Activity.CrimeListActivity">
+        <activity android:name=".activity.CrimePagerActivity"
+            android:parentActivityName=".activity.CrimeListActivity"/>
+        <activity android:name=".activity.CrimeListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

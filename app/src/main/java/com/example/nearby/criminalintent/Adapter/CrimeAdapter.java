@@ -1,4 +1,4 @@
-package com.example.nearby.criminalintent.Adapter;
+package com.example.nearby.criminalintent.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,9 +9,11 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
-import com.example.nearby.criminalintent.Model.Crime;
+import com.example.nearby.criminalintent.model.Crime;
 import com.example.nearby.criminalintent.R;
+import com.example.nearby.criminalintent.model.CrimeLab;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,6 +30,10 @@ public class CrimeAdapter extends RecyclerView.Adapter<CrimeAdapter.CrimeHolder>
     public CrimeAdapter(Context context, List<Crime> crimes){
         mCrimes = crimes;
         mContext = context;
+    }
+
+    public void setCrimes(List<Crime> crimes) {
+        mCrimes = crimes;
     }
 
     @Override
@@ -76,6 +82,9 @@ public class CrimeAdapter extends RecyclerView.Adapter<CrimeAdapter.CrimeHolder>
 
         }
 
+        public void setCrimes(List<Crime> crimes){
+
+        }
         @Override
         public void onClick(View view) {
             mOnCrimeClickListener.onCrimeSelected(mCrime,getAdapterPosition());
@@ -83,7 +92,8 @@ public class CrimeAdapter extends RecyclerView.Adapter<CrimeAdapter.CrimeHolder>
 
         @Override
         public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-            mCrime.setSolved(b);
+            mCrimes.get(getAdapterPosition()).setSolved(b);
+            CrimeLab.get(mContext).updateCrime(mCrimes.get(getAdapterPosition()));
         }
     }
 

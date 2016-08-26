@@ -1,8 +1,8 @@
-package com.example.nearby.criminalintent.Activity;
+package com.example.nearby.criminalintent.activity;
 
 import android.support.v4.app.Fragment;
 
-import com.example.nearby.criminalintent.Fragment.CrimeListFragment;
+import com.example.nearby.criminalintent.fragment.CrimeListFragment;
 
 /**
  * Created by sai pranesh on 23-Aug-16.
