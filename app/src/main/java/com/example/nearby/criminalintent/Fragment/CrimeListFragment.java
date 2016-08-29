@@ -114,11 +114,12 @@ public class CrimeListFragment extends Fragment {
         }
 
         if(mCrimeAdapter == null){
-            mCrimeAdapter = new CrimeAdapter(getActivity(),crimes);
+            mCrimeAdapter = new CrimeAdapter(getActivity());
             mCrimeAdapter.setOnCrimeClickListener(new CrimeAdapter.onCrimeClickListener() {
                 @Override
                 public void onCrimeSelected(Crime crime, int position) {
                     mCrime = crime;
+                    CrimeLab.get(getActivity()).updateCrime(crime);
                     CrimeListFragment.this.position = position;
                    /* Intent intent = CrimePagerActivity.newIntent(getActivity(),crime.getId());
                     startActivity(intent);*/

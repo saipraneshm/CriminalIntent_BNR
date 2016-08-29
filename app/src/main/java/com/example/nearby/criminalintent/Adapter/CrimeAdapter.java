@@ -27,8 +27,8 @@ public class CrimeAdapter extends RecyclerView.Adapter<CrimeAdapter.CrimeHolder>
     private Context mContext;
     private onCrimeClickListener mOnCrimeClickListener;
 
-    public CrimeAdapter(Context context, List<Crime> crimes){
-        mCrimes = crimes;
+    public CrimeAdapter(Context context){
+        mCrimes = CrimeLab.get(context).getCrimes();
         mContext = context;
     }
 
@@ -82,9 +82,6 @@ public class CrimeAdapter extends RecyclerView.Adapter<CrimeAdapter.CrimeHolder>
 
         }
 
-        public void setCrimes(List<Crime> crimes){
-
-        }
         @Override
         public void onClick(View view) {
             mOnCrimeClickListener.onCrimeSelected(mCrime,getAdapterPosition());
@@ -92,8 +89,9 @@ public class CrimeAdapter extends RecyclerView.Adapter<CrimeAdapter.CrimeHolder>
 
         @Override
         public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-            mCrimes.get(getAdapterPosition()).setSolved(b);
-            CrimeLab.get(mContext).updateCrime(mCrimes.get(getAdapterPosition()));
+            Crime crime = mCrimes.get(getAdapterPosition());
+            crime.setSolved(b);
+            mOnCrimeClickListener.onCrimeSelected(crime,getAdapterPosition());
         }
     }
 
