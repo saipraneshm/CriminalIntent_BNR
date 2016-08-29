@@ -4,18 +4,16 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Environment;
 
 import com.example.nearby.criminalintent.database.CrimeBaseHelper;
 import com.example.nearby.criminalintent.database.CrimeCursorWrapper;
 import com.example.nearby.criminalintent.database.CrimeDBSchema.CrimeTable;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-
-/**
- * Created by sai pranesh on 23-Aug-16.
- */
 
 
 public class CrimeLab {
@@ -113,6 +111,16 @@ public class CrimeLab {
         String uuidString = crime.getId().toString();
         mDatabase.delete(CrimeTable.NAME,CrimeTable.Cols.UUID + " = ?", new String[]{uuidString});
         return false;
+    }
+
+    public File getPhotoFile(Crime crime){
+        File externalDir = mContext.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+
+        if(externalDir == null){
+            return null;
+        }
+
+        return new File(externalDir,crime.getPhotoFileName());
     }
 
 }
