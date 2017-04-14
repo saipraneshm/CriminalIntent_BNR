@@ -9,4 +9,5 @@
   * Pick suspects from contacts list 
   * Either call or message the suspected crime doer
   
-  In this application I made use of Recycler view to display a list of crimes, View pager to swipe between crimes, Content providers to pick contacts, Implicit intents to click photos, SQL lite to store user data, Custom dialogs to select date and time. 
+  
+  In this application I made use of Recycler view to display a list of crimes, View pager to swipe between crimes, Content providers to pick contacts, Implicit intents to click photos, SQL lite to store user data, Custom dialogs to select date and time, support libraries to make it backward compatible and use of two-pane view to make it tablet compatible.
